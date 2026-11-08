@@ -54,6 +54,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Disable current workflow
-        run: gh workflow disable "${{github.workflow}}"
+        run: gh api --method PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/5-step.yml/disable"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
